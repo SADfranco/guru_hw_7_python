@@ -1,3 +1,4 @@
+import shutil
 import zipfile
 import os
 import pytest
@@ -15,3 +16,5 @@ def create_archive():
         for file in os.listdir(TEMP_DIR):
             add_file = os.path.join(TEMP_DIR, file)
             zf.write(add_file, os.path.basename(add_file))
+    yield
+    shutil.rmtree(RESOURSES_DIR)
