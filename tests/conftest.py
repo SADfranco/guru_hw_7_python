@@ -3,7 +3,7 @@ import zipfile
 import os
 import pytest
 
-@pytest.fixture(autouse=True)
+@pytest.fixture(scope='session', autouse=True)
 def create_archive():
     CURRENT_FILE = os.path.abspath(__file__)
     CURRENT_DIRECTORY = os.path.dirname(CURRENT_FILE)
